@@ -17,25 +17,25 @@ const MovieList = () => {
         return (
           <>
             <div className="col-lg-3 col-md-3 col-sm-6 mb-5">
-              <NavLink to={`/movie/${movie.imdbID}`}>
-                <div className=" card h-100   bg-dark" key={index}>
+              <div className=" card h-100   bg-dark" key={index}>
+                <NavLink to={`/movie/${movie.imdbID}`}>
                   <img
                     src={movie.Poster}
-                    className="d-block w-100 h-75"
+                    className="d-block w-100 h-100"
                     alt={movie.title}
                   />
+                </NavLink>
 
-                  <div className="card-body  text-light">
-                    <h5 className=" card-title   ">
-                      <span className="fs-5">Title:</span>
-                      {movie.Title.substring(0, 25)}
-                    </h5>
-                    <p className="card-text">
-                      <span className="fs-5">Year</span> {movie.Year}
-                    </p>
-                  </div>
+                <div className="card-body  text-light ">
+                  <h5 className=" card-title    ">
+                    <span className="fs-5">Title:</span>
+                    {movie.Title.substring(0, 25)}
+                  </h5>
+                  <p className="card-text">
+                    <span className="fs-5">Year</span> {movie.Year}
+                  </p>
                 </div>
-              </NavLink>
+              </div>
             </div>
           </>
         );
@@ -53,24 +53,25 @@ const MovieList = () => {
         return (
           <>
             <div className="col-lg-3 col-md-3 col-sm-6 mb-5">
-              <NavLink to={`/movie/${movie.imdbID}`}>
-                <div className=" card h-100 bg-dark">
+              <div className=" card h-100 w-100 bg-dark text-justify">
+                <NavLink to={`/movie/${movie.imdbID}`}>
                   <img
                     src={movie.Poster}
-                    className="d-block w-100 h-75"
+                    className="d-block w-100  h-100"
                     alt={movie.title}
                   />
-
-                  <div className="card-body  text-light">
-                    <h5 className=" card-title ">
-                      <span>Title</span> {movie.Title.substring(0, 25)}
-                    </h5>
-                    <p className="card-text ">
-                      <span className="fs-5 ">Year</span> {movie.Year}
-                    </p>
-                  </div>
+                </NavLink>
+                <div className="card-body text-light ">
+                  <h5 className="card-title">
+                    <span>Title:</span>
+                    {movie.Title.substring(0, 25)}
+                  </h5>
+                  <p className="card-text ">
+                    <span className="fs-5 ">Year:</span>
+                    {movie.Year}
+                  </p>
                 </div>
-              </NavLink>
+              </div>
             </div>
           </>
         );

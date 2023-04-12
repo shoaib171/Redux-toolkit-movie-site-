@@ -39,20 +39,20 @@ const Navbar = () => {
             </span>
           </NavLink>
 
-          <form className="Form--search" onSubmit={HandleSubmit}>
+          <form className="d-flex Form--search" onSubmit={HandleSubmit}>
             <input
-              className=" px-2"
+              className="form-control px-2 "
               placeholder="search Movie here.."
               value={SearchText}
               onChange={handleValue}
             />
-            <button className=" bun btn " type="submit">
+            <button className=" bun btn" type="submit">
               <i className=" fs-5 fa fa-search text-light"></i>
             </button>
           </form>
 
-          <div className="buttons">
-            <button className="btn btn-outline-light ">
+          <div className="buttons ">
+            <button className="btn btn-outline-light  ms-3">
               <i className="fa fa-sign-in me-2"></i>
               Login
             </button>
