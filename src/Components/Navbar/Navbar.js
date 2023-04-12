@@ -1,10 +1,27 @@
 /** @format */
 
 import React from "react";
-
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../Common/images/tv.png";
+import { useDispatch } from "react-redux";
+import {
+  FetchAsyncMovies,
+  FetchAsyncShows,
+} from "../../ReduxToolkit/MovieSlice";
 const Navbar = () => {
+  const [SearchText, setSearchText] = useState();
+  const dispatch = useDispatch();
+  const HandleSubmit = (event) => {
+    event.preventDefault();
+    console.log(SearchText);
+    dispatch(FetchAsyncMovies(SearchText));
+    dispatch(FetchAsyncShows(SearchText));
+    setSearchText("");
+  };
+  const handleValue = (e) => {
+    setSearchText(e.target.value);
+  };
   return (
     <>
       <nav className="Navbar navbar navbar-dark bg-dark shadow-sm ">
@@ -15,12 +32,25 @@ const Navbar = () => {
               alt="Brand Logo"
               width="30"
               height="30"
-              className="d-inline-block align-text-top me-2 "
+              className="me-1"
             />
-            <span className="Brand fw-bold fs-3 animate__animated animate__flash  ">
+            <span className="Brand fw-bold fs-3 animate__animated animate__flash   ">
               Movie Series
             </span>
           </NavLink>
+
+          <form className="Form--search" onSubmit={HandleSubmit}>
+            <input
+              className=" px-2"
+              placeholder="search Movie here.."
+              value={SearchText}
+              onChange={handleValue}
+            />
+            <button className=" bun btn " type="submit">
+              <i className=" fs-5 fa fa-search text-light"></i>
+            </button>
+          </form>
+
           <div className="buttons">
             <button className="btn btn-outline-light ">
               <i className="fa fa-sign-in me-2"></i>

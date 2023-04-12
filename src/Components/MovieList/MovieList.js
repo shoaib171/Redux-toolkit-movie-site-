@@ -3,7 +3,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { GetAllMovies, GetAllShows } from "../../ReduxToolkit/MovieSlice";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const MovieList = () => {
   const movies = useSelector(GetAllMovies);
@@ -17,8 +17,8 @@ const MovieList = () => {
         return (
           <>
             <div className="col-lg-3 col-md-3 col-sm-6 mb-5">
-              <Link to={`/movie/${movie.imdbID}`}>
-                <div className="card h-100   bg-dark" key={index}>
+              <NavLink to={`/movie/${movie.imdbID}`}>
+                <div className=" card h-100   bg-dark" key={index}>
                   <img
                     src={movie.Poster}
                     className="d-block w-100 h-75"
@@ -26,15 +26,16 @@ const MovieList = () => {
                   />
 
                   <div className="card-body  text-light">
-                    <h5 className=" card-title  ">
-                      <span>Title</span> {movie.Title.substring(0, 25)}
+                    <h5 className=" card-title   ">
+                      <span className="fs-5">Title:</span>
+                      {movie.Title.substring(0, 25)}
                     </h5>
                     <p className="card-text">
                       <span className="fs-5">Year</span> {movie.Year}
                     </p>
                   </div>
                 </div>
-              </Link>
+              </NavLink>
             </div>
           </>
         );
@@ -52,25 +53,24 @@ const MovieList = () => {
         return (
           <>
             <div className="col-lg-3 col-md-3 col-sm-6 mb-5">
-              <Link to={`/movie/${movie.imdbID}`}>
-                <div className="card h-100 bg-dark">
+              <NavLink to={`/movie/${movie.imdbID}`}>
+                <div className=" card h-100 bg-dark">
                   <img
-                    key={movie.imdbID}
                     src={movie.Poster}
                     className="d-block w-100 h-75"
                     alt={movie.title}
                   />
 
                   <div className="card-body  text-light">
-                    <h5 className=" card-title  ">
+                    <h5 className=" card-title ">
                       <span>Title</span> {movie.Title.substring(0, 25)}
                     </h5>
-                    <p className="card-text">
-                      <span className="fs-5">Year</span> {movie.Year}
+                    <p className="card-text ">
+                      <span className="fs-5 ">Year</span> {movie.Year}
                     </p>
                   </div>
                 </div>
-              </Link>
+              </NavLink>
             </div>
           </>
         );
